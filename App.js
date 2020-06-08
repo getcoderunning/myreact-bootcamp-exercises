@@ -1,8 +1,9 @@
-import React from 'react';
-import './src/styles/style.scss';
-import Child from './src/components/Child';
+//ANCHOR Using React Fragment
+// import React from 'react';
+// import './src/styles/style.scss';
+// import Child from './src/components/Child';
 
-function App() {
+// function App() {
     //old approach
     // return (
     //     <div>
@@ -20,10 +21,24 @@ function App() {
     //using React.Fragment shorthand notation
     //using React.Fragment have effects on CSS, CSS may not find tags or components in your app
     //using React.Fragment simplifies the DOM tree and nested tags in your html
+    // return (
+    //     <>
+    //         <Child />
+    //     </>
+    // )
+// }
+
+//ANCHOR Using Default Props
+import React from 'react';
+import Card from  './src/components/Card';
+
+function App() {
     return (
-        <>
-            <Child />
-        </>
+        <div>
+            <Card cardColor="red" height={50} width={50} />
+            <Card  cardColor="yellow"/>
+            <Card cardColor="green" height={150} width={150}/>
+        </div>
     )
 }
 
