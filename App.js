@@ -29,17 +29,29 @@
 // }
 
 //ANCHOR Using Default Props
+// import React from 'react';
+// import Card from  './src/components/Card';
+
+// function App() {
+//     return (
+//         <div>
+//             <Card cardColor="red" height={50} width={50} />
+//             <Card />
+//             <Card cardColor="blue" height={150} width={150}/>
+//         </div>
+//     )
+// }
+
+//ANCHOR Using Default Props and propTypes Practice
 import React from 'react';
-import Card from  './src/components/Card';
+import RoundImg from './src/components/RoundedImg'
 
 function App() {
     return (
         <div>
-            <Card cardColor="red" height={50} width={50} />
-            <Card />
-            <Card cardColor="blue" height={150} width={150}/>
+            <RoundImg src="https://picsum.photos/id/237/300/300" borderRadius={50} />
         </div>
     )
 }
-
+// 
 export default App
