@@ -36,8 +36,8 @@ function App() {
     return (
         <div>
             <Card cardColor="red" height={50} width={50} />
-            <Card  cardColor="yellow"/>
-            <Card cardColor="green" height={150} width={150}/>
+            <Card />
+            <Card cardColor="blue" height={150} width={150}/>
         </div>
     )
 }
