@@ -136,15 +136,32 @@
 //export default App
 // ****************************************************************
 // ANCHOR Implementing Higher-Order Components example 2
-import React from 'react';
-import {withFavoriteNumber} from './src/components/withFavoriteNumber';
+// import React from 'react';
+// import {withFavoriteNumber} from './src/components/withFavoriteNumber';
 
-function App(props) {
+// function App(props) {
+//     return (
+//         <div>
+//             <h1>{props.favoriteNumber}</h1>
+//         </div>
+//     )
+// }
+
+// export default withFavoriteNumber(App)
+// ****************************************************************
+// ANCHOR Implementing Higher-Order Components example 3
+import React from 'react';
+import Favorite from './src/components/Favorite';
+import Menu from './src/components/Menu';
+
+function App() {
     return (
         <div>
-            <h1>{props.favoriteNumber}</h1>
+            <Menu />
+            <hr />
+            <Favorite />
         </div>
     )
 }
 
-export default withFavoriteNumber(App)
+export default App
