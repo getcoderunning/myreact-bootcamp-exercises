@@ -27,7 +27,7 @@
     //     </>
     // )
 // }
-
+// ****************************************************************
 //ANCHOR Using Default Props
 // import React from 'react';
 // import Card from  './src/components/Card';
@@ -41,7 +41,7 @@
 //         </div>
 //     )
 // }
-
+// ****************************************************************
 //ANCHOR Using Default Props and propTypes Practice
 // import React from 'react';
 // import RoundImg from './src/components/RoundedImg'
@@ -54,19 +54,19 @@
 //     )
 // }
 // 
-
+// ****************************************************************
 //ANCHOR Using Children
-import React from 'react';
-import './src/styles/style.scss';
+// import React from 'react';
+// import './src/styles/style.scss';
 // import EmailCallout from './src/components/EmailCallout';
 // import ImageCallout from './src/components/ImageCallout';
 // import InfoCallout from './src/components/InfoCallout';
-import Callout from './src/components/Callout';
+// import Callout from './src/components/Callout';
 
-function App() {
-    return (
-        <main>
-            <h1>Welcome!</h1>
+// function App() {
+//     return (
+//         <main>
+//             <h1>Welcome!</h1>
             {/* ANCHOR code NOT using children
             <InfoCallout 
                 header="Don't miss out!"
@@ -87,9 +87,9 @@ function App() {
                 btnText="Sign me up!" 
             />
              */}
-
-            {/* ANCHOR using children */}
-<           Callout>
+// ****************************************************************
+{/* ANCHOR using children */}
+{/* <           Callout>
                 <h2>Don't miss out!</h2>
                 <p>Unless you don't suffer from FOMO, you better make sure you fill out the email form below!</p>
             </Callout>
@@ -108,8 +108,29 @@ function App() {
                 <input type="email" placeholder="Enter Email"/>
                 <button>Sign me up!</button>
             </Callout>
-        </main>
+        </main> */}
+//     )
+// }
+// ****************************************************************
+// ANCHOR Implementing Higher-Order Components
+// Higher-Ored Components - A function that takes a component as its first argument 
+// and returns a new component that wraps the given component, 
+// providing extra capabilities to it.
+import React from 'react';
+import {withPointlessHOC} from './src/components/withPointlessHOC';
+import {withExtraPropAdded} from './src/components/withExtraPropAdded';
+
+function App(props) {
+    console.log(props)
+    return (
+        <div>
+            <h1>Hello World!</h1>
+
+        </div>
     )
 }
 
-export default App
+const PointlessHOC = withExtraPropAdded(App);
+// const PointlessHOCc = withPointlessHOC(App);
+export default PointlessHOC
+//export default App
