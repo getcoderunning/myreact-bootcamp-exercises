@@ -112,25 +112,39 @@
 //     )
 // }
 // ****************************************************************
-// ANCHOR Implementing Higher-Order Components
+// ANCHOR Implementing Higher-Order Components example 1
 // Higher-Ored Components - A function that takes a component as its first argument 
 // and returns a new component that wraps the given component, 
 // providing extra capabilities to it.
+// import React from 'react';
+// import {withPointlessHOC} from './src/components/withPointlessHOC';
+// import {withExtraPropAdded} from './src/components/withExtraPropAdded';
+
+// function App(props) {
+//     console.log(props)
+//     return (
+//         <div>
+//             <h1>Hello World!</h1>
+
+//         </div>
+//     )
+// }
+
+// const PointlessHOC = withExtraPropAdded(App);
+// const PointlessHOCc = withPointlessHOC(App);
+// export default PointlessHOC
+//export default App
+// ****************************************************************
+// ANCHOR Implementing Higher-Order Components example 2
 import React from 'react';
-import {withPointlessHOC} from './src/components/withPointlessHOC';
-import {withExtraPropAdded} from './src/components/withExtraPropAdded';
+import {withFavoriteNumber} from './src/components/withFavoriteNumber';
 
 function App(props) {
-    console.log(props)
     return (
         <div>
-            <h1>Hello World!</h1>
-
+            <h1>{props.favoriteNumber}</h1>
         </div>
     )
 }
 
-const PointlessHOC = withExtraPropAdded(App);
-// const PointlessHOCc = withPointlessHOC(App);
-export default PointlessHOC
-//export default App
+export default withFavoriteNumber(App)
