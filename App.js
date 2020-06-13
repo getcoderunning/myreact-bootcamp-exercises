@@ -167,12 +167,12 @@
 // export default App
 // ****************************************************************
 // ANCHOR Implementing Render props example 1
-import React from 'react';
-import Example from './src/components/Example';
+// import React from 'react';
+// import Example from './src/components/Example';
 
-function App() {
-    return (
-        <div>
+// function App() {
+//     return (
+//         <div>
             {/* <Example name={"Xtian"}/> */}
             {/* <Example name={function(){return "Hey there!"}} /> */}
             {/* <Example name={function(){return <h1>Hey there!</h1>}} /> */}
@@ -196,7 +196,7 @@ function App() {
             }/> */}
 
             {/* another example */}
-            <Example render={
+            {/* <Example render={
                 function(bool, number) {
                     return (
                         <div>
@@ -210,4 +210,37 @@ function App() {
     )
 }
 
-export default App
+export default App */}
+// ****************************************************************
+// ANCHOR Implementing Render props example 2
+    import React from "react";
+    import Menu from "./src/components/Menu";
+    import Favorite from "./src/components/Favorite";
+    import Toggler from './src/components/Toggler';
+
+    // function App() {
+    //     return (
+    //         <div>
+    //             <Menu />
+    //             <hr />
+    //             <Favorite />
+    //         </div>
+    //     )
+    // }
+
+    //another approach to render toggler
+    function App() {
+        return (
+            <div>
+                <Toggler defaultOnValue={true} render={({on, toggle}) => {
+                    return (
+                        <Menu on={on} toggle={toggle} />
+                    )
+                }} />
+                <hr />
+                <Favorite />
+            </div>
+        )
+    }
+
+    export default App

@@ -1,0 +1,44 @@
+import React, {Component} from 'react';
+
+class Toggler extends Component {
+    state = {
+        on: this.props.defaultOnValue
+    }
+
+    static defaultProps = {
+        defaultOnValue: false
+    }
+
+    toggle = () => {
+        this.setState(prevSate => {
+            return {
+                on: !prevSate.on
+            }
+        })
+    }
+
+    //rendering as parameters
+    // render() {        
+    //     return (
+    //         <div>
+    //             {this.props.render(this.state.on, this.toggle)}
+    //         </div>
+    //     )
+    // }
+
+    //rendering as objects
+    render() {        
+        return (
+            <div>
+                {this.props.render({
+                   on: this.state.on,
+                   toggle: this.toggle
+                })}                    
+            </div>
+        )
+    }
+
+}
+
+export default Toggler
+

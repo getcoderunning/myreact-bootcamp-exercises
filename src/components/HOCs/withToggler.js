@@ -25,11 +25,5 @@ class Toggler extends Component {
 
 }
 
-export function withToggler(component, optionsObj) {
-    return function(props) {
-        return (
-            <Toggler component={component} defaultOnValue={optionsObj.defaultOnValue} {...props} />
-        )
-    }
-}
+export default Toggler
 

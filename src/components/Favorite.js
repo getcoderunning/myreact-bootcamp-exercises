@@ -35,23 +35,48 @@
 // }
 
 // ANCHOR using function
+// import React from "react"
+// import {withToggler} from "./HOCs/withToggler"
+
+// function Favorite(props) {
+//     return (
+//         <div>
+//             <h3>Click heart to favorite</h3>
+//             <h1>
+//                 <span 
+//                     onClick={props.toggle}
+//                 >
+//                     {props.on ? "❤️" : "♡"}
+//                 </span>
+//             </h1>
+//         </div>
+//     ) 
+// }
+
+// const SuperchargeFavoriteComponent = withToggler(Favorite,{defaultOnValue: false});
+// export default SuperchargeFavoriteComponent
+
+// ANCHOR using render props
 import React from "react"
-import {withToggler} from "./HOCs/withToggler"
+import Toggler from "./Toggler"
 
 function Favorite(props) {
     return (
-        <div>
-            <h3>Click heart to favorite</h3>
-            <h1>
-                <span 
-                    onClick={props.toggle}
-                >
-                    {props.on ? "❤️" : "♡"}
-                </span>
-            </h1>
-        </div>
+        <Toggler  render={
+            ({on, toggle}) => (                
+                    <div>
+                        <h3>Click heart to favorite</h3>
+                        <h1>
+                            <span 
+                                onClick={toggle}
+                            >
+                                {on ? "❤️" : "♡"}
+                            </span>
+                        </h1>
+                    </div>
+            )
+        }/>    
     ) 
 }
 
-const SuperchargeFavoriteComponent = withToggler(Favorite,{defaultOnValue: false});
-export default SuperchargeFavoriteComponent
+export default Favorite
