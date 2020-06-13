@@ -150,16 +150,62 @@
 // export default withFavoriteNumber(App)
 // ****************************************************************
 // ANCHOR Implementing Higher-Order Components example 3
+// import React from 'react';
+// import Favorite from './src/components/Favorite';
+// import Menu from './src/components/Menu';
+
+// function App() {
+//     return (
+//         <div>
+//             <Menu />
+//             <hr />
+//             <Favorite />
+//         </div>
+//     )
+// }
+
+// export default App
+// ****************************************************************
+// ANCHOR Implementing Render props example 1
 import React from 'react';
-import Favorite from './src/components/Favorite';
-import Menu from './src/components/Menu';
+import Example from './src/components/Example';
 
 function App() {
     return (
         <div>
-            <Menu />
-            <hr />
-            <Favorite />
+            {/* <Example name={"Xtian"}/> */}
+            {/* <Example name={function(){return "Hey there!"}} /> */}
+            {/* <Example name={function(){return <h1>Hey there!</h1>}} /> */}
+
+            {/* Rendering a boolean */}
+            {/* <Example render={
+                        function(isDayTime) {
+                            return (
+                            <h1>{isDayTime ? "Good Day" : "Good Evening"}, Xtian!</h1>
+                            )
+                        }
+            }/> */}
+
+            {/* Rendering a number */}
+            {/* <Example render={
+                        function(number) {
+                            return (
+                                <h1>{number >= 0 ? "Positive" : "Negative"} Number</h1>
+                            )
+                        }
+            }/> */}
+
+            {/* another example */}
+            <Example render={
+                function(bool, number) {
+                    return (
+                        <div>
+                                <h1>{number}</h1>
+                                <h1>{bool ? "true" : "false"}</h1>
+                        </div>
+                    )
+                }
+            }/>
         </div>
     )
 }
