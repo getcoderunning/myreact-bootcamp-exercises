@@ -2,9 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import App from "../App";
+import ThemeContext from '../themeContext';
 
-const ThemeContext = React.createContext();
-//ThemeContext.Provider and ThemeContext.Consumer
 
 ReactDOM.render(
         <ThemeContext.Provider value={"light"}>
