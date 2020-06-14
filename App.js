@@ -246,12 +246,12 @@ export default App */}
     // export default App
     // ****************************************************************
 // ANCHOR Implementing Render props example 3
-import React from "react";
-import DataFetcher from "./src/components/DataFetcher";
+// import React from "react";
+// import DataFetcher from "./src/components/DataFetcher";
 
-function App() {    
-    return (
-        <div>
+// function App() {    
+//     return (
+//         <div>
             
                 {/**
                  * Part 2: Call the function the DataFetcher is expecting.
@@ -267,15 +267,34 @@ function App() {
                  * DataFetcher component based on what you see here.)
                  */}
 
-            <DataFetcher url="https://swapi.dev/api/people/1">   
-                 {({data, loading}) => (                    
-                         loading ?
-                            <h1>Loading...</h1> :
-                            <p>{JSON.stringify(data)}</p>
-                 )}
-            </DataFetcher>
-        </div>
-    )
+//             <DataFetcher url="https://swapi.dev/api/people/1">   
+//                  {({data, loading}) => (                    
+//                          loading ?
+//                             <h1>Loading...</h1> :
+//                             <p>{JSON.stringify(data)}</p>
+//                  )}
+//             </DataFetcher>
+//         </div>
+//     )
+// }
+
+// export default App
+    // ****************************************************************
+// ANCHOR How react's Tree Rendering works
+import React, {Component} from "react"
+import GrandParent from "./src/components/GrandParent"
+
+class App extends Component {
+    render() {
+        console.log("[GP] [P] [C] [GC] APP just rendered")
+        return (
+            <div>
+                <p>I'm the App component</p>
+                <GrandParent />
+                <GrandParent />
+            </div>
+        )    
+    }
 }
 
 export default App
