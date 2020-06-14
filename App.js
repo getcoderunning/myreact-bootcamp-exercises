@@ -15,8 +15,8 @@ class App extends Component {
                 <p>I'm the App component</p>
                 {/* <GrandParent count={this.state.count} />
                 <GrandParent count={this.state.count} /> */}
-                <GrandParent />
-                <GrandParent />
+                <GrandParent count={this.state.count} />
+                <GrandParent count={this.state.count} />
             </div>
         )    
     }
