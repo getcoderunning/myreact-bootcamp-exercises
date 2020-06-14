@@ -1,9 +1,7 @@
-import React, {PureComponent} from "react"
-import Parent from "./Parent"
+import React from "react";
+import Parent from "./Parent";
 
-class GrandParent extends PureComponent {   
-    
-    render() {
+function GrandParent(props) {  
         console.log("[👴🏼]   [ ]   [ ]   [ ] rendered")
         return (
             <div>
@@ -11,8 +9,14 @@ class GrandParent extends PureComponent {
                 <Parent />
                 <Parent />
             </div>
-        )
-    }
+        )    
 }
 
-export default GrandParent
+function areEqual(prevProps, nextProps) {
+    /*
+    return true if passing nextProps to render would return
+    the same result as passing prevProps to render,
+    otherwise return false
+    */
+  }
+export default React.memo(GrandParent, areEqual) 

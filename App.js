@@ -1,13 +1,13 @@
-import React, {Component} from "react"
+import React, {Component} from "react";
 import GrandParent from "./src/components/GrandParent"
 
 class App extends Component {
     state = { count: 0 }
     
-    increment = () => this.setState(prevState => ({count: prevState.count + 1}))
+    increment = () => this.setState(prevState => ({count: prevState.count + 1}))    
     
     render() {
-        console.log("[GP] [P] [C] [GC] APP just rendered")
+        console.log("[GP] [P] [C] [GC] APP just rendered");
         return (
             <div>
                 <button onClick={this.increment}>+1</button>
@@ -16,7 +16,7 @@ class App extends Component {
                 {/* <GrandParent count={this.state.count} />
                 <GrandParent count={this.state.count} /> */}
                 <GrandParent count={this.state.count} />
-                <GrandParent count={this.state.count} />
+                <GrandParent  />
             </div>
         )    
     }
