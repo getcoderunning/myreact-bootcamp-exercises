@@ -36,19 +36,35 @@
 
 // export default Header
 
-// ANCHOR Consumer example
-import React from 'react';
-import ThemeContext from '../../themeContext';
+// ANCHOR Consumer example 1
+// import React from 'react';
+// import ThemeContext from '../../themeContext';
 
-function Header(props) {
+// function Header(props) {
+//   return (
+//     <ThemeContext.Consumer>
+//       {theme => (
+//         <header className={`${theme}-theme`}>
+//           <h2>{theme === 'light' ? 'Light' : 'Dark'} Theme</h2>
+//         </header>
+//       )}
+//     </ThemeContext.Consumer>
+//   );
+// }
+
+// export default Header;
+
+// ANCHOR Consumer example 2
+import React from 'react';
+import UserContext from '../../userContext';
+
+function Header() {
   return (
-    <ThemeContext.Consumer>
-      {theme => (
-        <header className={`${theme}-theme`}>
-          <h2>{theme === 'light' ? 'Light' : 'Dark'} Theme</h2>
-        </header>
-      )}
-    </ThemeContext.Consumer>
+    <header>
+      <UserContext.Consumer>
+        {username => <p>Welcome, {username}!</p>}
+      </UserContext.Consumer>
+    </header>
   );
 }
 
