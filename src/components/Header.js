@@ -56,15 +56,17 @@
 
 // ANCHOR Consumer example 2
 import React from 'react';
-import UserContext from '../../userContext';
+import { ThemeContextConsumer } from './ThemeContextProvider';
 
-function Header() {
+function Header(props) {
   return (
-    <header>
-      <UserContext.Consumer>
-        {username => <p>Welcome, {username}!</p>}
-      </UserContext.Consumer>
-    </header>
+    <ThemeContextConsumer>
+      {theme => (
+        <header className={`${theme}-theme`}>
+          <h2>{theme === 'light' ? 'Light' : 'Dark'} Theme</h2>
+        </header>
+      )}
+    </ThemeContextConsumer>
   );
 }
 

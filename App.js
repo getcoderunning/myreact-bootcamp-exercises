@@ -45,10 +45,10 @@
 // export default App;
 
 //  ANCHOR Context example 2
-import React from 'react';
-import Header from './src/components/Header';
-import UserContext from './userContext';
-import './src/styles/style.scss'
+// import React from 'react';
+// import Header from './src/components/Header';
+// import UserContext from './userContext';
+// import './src/styles/style.scss'
 
 /**
  * Challenge:
@@ -57,17 +57,34 @@ import './src/styles/style.scss'
  * 2. Use UserContext.Consumer to consume the username context in both places
  */
 
+// function App() {
+//   return (
+//     <div>
+//       <Header />
+//       <main>
+//         <UserContext.Consumer>
+//           {username => (
+//             <p className="main">No new notifications, {username}! 🎉</p>
+//           )}
+//         </UserContext.Consumer>
+//       </main>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+//  ANCHOR Moving COntext Provider to its own component
+import React from "react";
+import Header from "./src/components/Header";
+import Button from "./src/components/Button";
+import './src/styles/style.scss'
+
 function App() {
   return (
     <div>
       <Header />
-      <main>
-        <UserContext.Consumer>
-          {username => (
-            <p className="main">No new notifications, {username}! 🎉</p>
-          )}
-        </UserContext.Consumer>
-      </main>
+      <Button />
     </div>
   );
 }

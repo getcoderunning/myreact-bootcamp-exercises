@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom';
 
 import App from '../App';
 // import ThemeContext from '../themeContext';
-import UserContext from '../userContext';
+// import UserContext from '../userContext';
+// eslint-disable-next-line import/no-useless-path-segments
+import {ThemeContextProvider} from '../src/components/ThemeContextProvider';
 
 ReactDOM.render(
-  <UserContext.Provider value="christianbailon">
+  <ThemeContextProvider>
     <App />
-  </UserContext.Provider>,
+  </ThemeContextProvider>,
   document.getElementById('root')
 );
