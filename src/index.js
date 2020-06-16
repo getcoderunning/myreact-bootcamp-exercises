@@ -1,13 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import App from "../App";
+import App from '../App';
 import ThemeContext from '../themeContext';
-
+// import UserContext from '../userContext'
 
 ReactDOM.render(
-        <ThemeContext.Provider value={"light"}>
-            <App />
-        </ThemeContext.Provider>, 
-        document.getElementById("root")
-    )
+  <ThemeContext.Provider value={'dark'}>
+    <App />
+  </ThemeContext.Provider>,
+  document.getElementById('root')
+);
