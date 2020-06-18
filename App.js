@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+// import React, {useState} from 'react';
 
 // ANCHOR Using class for state
 // class App extends React.Component {
@@ -54,22 +54,77 @@ import React, {useState} from 'react';
 // }
 
 // using function for state
-function App() {
-  const [count, setCount] = useState(0);
+// function App() {
+//   const [count, setCount] = useState(0);
 
-  function increment(){
-    setCount(prevCount => prevCount + 1);
+//   function increment(){
+//     setCount(prevCount => prevCount + 1);
+//   }
+//   function decrement(){
+//     setCount(prevCount => prevCount - 1);
+//   }
+
+//   return (
+//     <div>
+//       <h1>{count}</h1>
+//       <button onClick={increment}>Increment</button>
+//       <button onClick={decrement}>Decrement</button>
+//     </div>
+//   );
+// }
+
+// ANCHOR Using useState() example 3
+import React, { useState } from 'react';
+
+function App() {
+  const [inputData, setInputData] = useState({ firstName: '', lastName: '' });
+  const [contactsData, setContactsData] = useState([]);
+
+  function handleChange(event) {
+    // update our inputData state
+    const { name, value } = event.target;
+    setInputData(prevInputData => {
+      return {
+        ...prevInputData,
+        [name]: value,
+      };
+    });
   }
-  function decrement(){
-    setCount(prevCount => prevCount - 1);
+
+  function handleSubmit(event) {
+    // add the InputData to contactsData array
+    event.preventDefault();
+    setContactsData(prevContacts => [...prevContacts, inputData]);
   }
+
+  console.log(contactsData);
+
+  const contacts = contactsData.map(contact => (
+    <h2 key={contact.firstName + contact.lastName}>
+      {contact.firstName} {contact.lastName}
+    </h2>
+  ));
 
   return (
-    <div>
-      <h1>{count}</h1>
-      <button onClick={increment}>Increment</button>
-      <button onClick={decrement}>Decrement</button>
-    </div>
+    <>
+      <form onSubmit={handleSubmit}>
+        <input
+          placeholder="First Name"
+          name="firstName"
+          value={inputData.firstName}
+          onChange={handleChange}
+        />
+        <input
+          placeholder="Last Name"
+          name="lastName"
+          value={inputData.lastName}
+          onChange={handleChange}
+        />
+        <br />
+        <button>Add contact</button>
+      </form>
+      {contacts}
+    </>
   );
 }
 
