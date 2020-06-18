@@ -26,22 +26,22 @@
 // }
 
 // ANCHOR Move Context Provider to its own component
-import React from 'react';
-import { ThemeContextConsumer } from './ThemeContextProvider';
+// import React from 'react';
+// import { ThemeContextConsumer } from './ThemeContextProvider';
 
-function Button() {
-  return (
-    <ThemeContextConsumer>
-      {context => (
-        <button
-          onClick={context.toggleTheme}
-          className={`${context.theme}-theme`}
-        >
-          Switch Theme
-        </button>
-      )}
-    </ThemeContextConsumer>
-  );
-}
+// function Button() {
+//   return (
+//     <ThemeContextConsumer>
+//       {context => (
+//         <button
+//           onClick={context.toggleTheme}
+//           className={`${context.theme}-theme`}
+//         >
+//           Switch Theme
+//         </button>
+//       )}
+//     </ThemeContextConsumer>
+//   );
+// }
 
-export default Button;
+// export default Button;
